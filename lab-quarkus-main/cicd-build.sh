@@ -6,7 +6,7 @@ cd "$APP"
 
 ./mvnw clean
 ./mvnw versions:set -DremoveSnapshot
-APP_VERSION=$(./mvnw -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
+APP_VERSION=$(./mvnw -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')
 ./mvnw package
 ./mvnw versions:set -DnextSnapshot
 

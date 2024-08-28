@@ -1,6 +1,8 @@
 package domain;
 
 import javax.enterprise.context.ApplicationScoped;
+import java.util.List;
+import java.util.Optional;
 
 @ApplicationScoped
 public class CandidateService {
@@ -14,4 +16,12 @@ public class CandidateService {
     public void save(Candidate candidate) {
         repository.save(candidate);
     }
+
+    public List<Candidate> findAll() {
+        return repository.findAll();
+    }
+
+    //public Optional<Candidate> findById(String id) {
+    //    return repository.findById(id);
+    //}
 }
